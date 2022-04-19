@@ -2,8 +2,8 @@
     Якщо змінна a не дорівнює нулю, виведіть 'Вірно', інакше виведіть 'Невірно'.
     Перевірте  скрипт при a, що дорівнює 1, 0, -3*/
 
-let x = prompt('Enter the number: ');
-if (x !== '0') {
+let x = +prompt('Enter the number: ');
+if (x !== 0) {
     console.log("True");
     document.write("True");
 } else {
