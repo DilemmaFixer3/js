@@ -2,8 +2,8 @@
     Якщо змінна a не дорівнює нулю, виведіть 'Вірно', інакше виведіть 'Невірно'.
     Перевірте  скрипт при a, що дорівнює 1, 0, -3*/
 
-let A = prompt('Enter the number: ');
-if (A !== '0') {
+let x = prompt('Enter the number: ');
+if (x !== '0') {
     console.log("True");
     document.write("True");
 } else {
@@ -17,7 +17,6 @@ if (A !== '0') {
 (в першу, другу, третю или четверту частину години).*/
 
 let time = prompt('Enter the number from 0 to 59: ');
-debugger;
 if (time <= 14) {
     document.write('The number belongs to the first quarter');
 } else if (14 < time && time <= 29) {
@@ -84,8 +83,8 @@ switch (dayNumber) {
         Потрібно знайти та вивести максимальне число з тих двох .
         Також потрібно врахувати коли введені рівні числа.*/
 
-let a = prompt('Enter the number A: ');
-let b = prompt('Enter the number B: ');
+let a = +prompt('Enter the number A: ');
+let b = +prompt('Enter the number B: ');
 
 if (a>b){
     document.write('The bigger the number A: ', a);
