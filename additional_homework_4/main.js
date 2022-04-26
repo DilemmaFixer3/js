@@ -232,3 +232,4 @@ function obj_name_out(arr, res) {
 
 obj_name_out(arr_obj, res_arr_00);
 console.log(`!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!`);
+  //
