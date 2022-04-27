@@ -253,7 +253,7 @@ console.log(`----------------------------------------`);
 всі букви в слово.*/
 
 let arr_12 = ['a', 'b', 'c'];
-let result_0=0;
+let result_0=``;
 for (let j=0; j<arr_12.length;j++) {
     result_0+=arr_12[j];
 }
@@ -265,7 +265,7 @@ console.log(`----------------------------------------`);
 За допомогою циклу while зібрати всі букви в слово.*/
 
 let arr_13 = ['a', 'b', 'c'];
-let result_1=0;
+let result_1=``;
 let l=0;
 while (l<arr_13.length){
     result_1+=arr_13[l];
@@ -278,7 +278,7 @@ console.log(`----------------------------------------`);
 зібрати всі букви в слово.*/
 
 let arr_14 = ['a', 'b', 'c'];
-let result_2=0;
+let result_2=``;
 
 for (const string of arr_14) {
     result_2+=string;
