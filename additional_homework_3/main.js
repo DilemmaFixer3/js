@@ -198,7 +198,8 @@ for (let u = 0; u < usersWithId.length; u++) {
             usersWithCities[u].name = usersWithId[u].name;
             usersWithCities[u].age = usersWithId[u].age;
             usersWithCities[u].status = usersWithId[u].status;
-
+           // usersWithCities[u]={address:user_id};
+            //let ads={val:0};
             // usersWithCities[u].address.user_id=citiesWithId[h].user_id;
             //usersWithCities[u].address.country=citiesWithId[h].country;
             //usersWithCities[u].address.city=citiesWithId[h].city;
