@@ -193,11 +193,15 @@ let usersWithCities = [{}, {}, {}, {}];
 for (let u = 0; u < usersWithId.length; u++) {
     for (let h = 0; h < citiesWithId.length; h++) {
         if (usersWithId[u].id === citiesWithId[h].user_id) {
-            //usersWithCities[u].id=(usersWithId[u]+ citiesWithId[h]);
-            usersWithCities[u].id = usersWithId[u].id;
+           usersWithCities[u].id=usersWithId[u].id;
             usersWithCities[u].name = usersWithId[u].name;
             usersWithCities[u].age = usersWithId[u].age;
             usersWithCities[u].status = usersWithId[u].status;
+            usersWithCities[u].address={user_id:citiesWithId[h].user_id,
+                country:citiesWithId[h].country,
+                city:citiesWithId[h].city
+            };
+
            // usersWithCities[u]={address:user_id};
             //let ads={val:0};
             // usersWithCities[u].address.user_id=citiesWithId[h].user_id;
@@ -205,8 +209,11 @@ for (let u = 0; u < usersWithId.length; u++) {
             //usersWithCities[u].address.city=citiesWithId[h].city;
 
 
-            console.log(usersWithCities[u].id, usersWithCities[u].name,
-                usersWithCities[u].age, usersWithCities[u].status);
+           // console.log(usersWithCities[u].id, usersWithCities[u].name,
+           //     usersWithCities[u].age, usersWithCities[u].status, usersWithCities[u]);
+
+            console.log(usersWithCities[u]);
+
             //console.log(usersWithCities[u].name);
             /*document.write(`${usersWithCities[u].id} ${usersWithCities[u].name}
             ${usersWithCities[u].age} ${usersWithCities[u].status} 

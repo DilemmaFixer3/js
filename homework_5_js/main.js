@@ -235,7 +235,7 @@ let arr0=[5, 90];
 
 let change_arr=(arr)=>{
     let p;
-    p=arr[0];
+    p=arr[0];100
     arr[0]=arr[1];
     arr[1]=p;
     console.log(arr);
