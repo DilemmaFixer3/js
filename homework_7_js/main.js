@@ -212,11 +212,13 @@ let arrCinderellas = [new Cinderella(`Ann`, 18, 34),
 class Prince extends Cinderella {
     constructor(name, age, shoeSize) {
         super(name, age);
-        this.shoeSize = shoeSize;
+        delete this.footSize;
+        this.shoeSize=shoeSize;
     }
 }
 
 let prince = new Prince(`Nike`, 24, 32);
+console.log(prince);
 
 let cinderellaFind =(arr, princeX)=>{
     let resultCinderella=[];
