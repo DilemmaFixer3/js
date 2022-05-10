@@ -149,10 +149,10 @@ class Carr {
         this.maximumSpeed = maximumSpeed;
         this.engineCapacity = engineCapacity;
     }
-    drive=function () {
+    drive () {
             console.log(`їдемо зі швидкістю ${this.maximumSpeed} на годину`);
     }
-    info=function () {
+    info () {
         console.log(`model - ${this.model}`);
         console.log(`manufacturer - ${this.manufacturer}`);
         console.log(`year - ${this.year}`);
@@ -160,13 +160,13 @@ class Carr {
         console.log(`engineCapacity - ${this.engineCapacity}`);
 
     }
-    increaseMaxSpeed=function (newSpeed) {
+    increaseMaxSpeed (newSpeed) {
         return this.maximumSpeed+=newSpeed;
     }
-    changeYear = function (newValue) {
+    changeYear (newValue) {
         return this.year=newValue;
     }
-    addDriver=function (driver) {
+    addDriver (driver) {
         this.driver=driver;
     }
 }
