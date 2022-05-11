@@ -33,8 +33,12 @@ elementByIdRules.style.color=`blue`;
 
 //-- отримати весь список класів елемента з id=rules і вивести їх в console.log
 
-let idRulesList = document.querySelectorAll(`#rules`);
-console.log(idRulesList);
+//let idRulesList = document.querySelectorAll(`#rules`);
+//console.log(idRulesList);
+
+let idRules = document.getElementById(`rules`);
+let classList = idRules.classList;
+console.log(classList);
 
 //-- поміняти колір тексту у всіх елементів fc_rules на червоний
 
