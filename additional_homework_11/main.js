@@ -20,15 +20,10 @@ let users = [
     {name: 'max', age: 31, status: true}
 ];
 
-let favourites = [];
-localStorage.setItem(`favourites` , JSON.stringify(favourites));
-
-
 for (const user of users) {
 
     let divUser = document.createElement(`div`);
     let h3 = document.createElement(`h3`);
-   // debugger;
     let buttonUser = document.createElement(`button`);
     h3.setAttribute(`class`, `h3`);
     buttonUser.setAttribute(`class`, `butt`);
@@ -36,7 +31,7 @@ for (const user of users) {
     document.body.append(divUser);
     divUser.append( h3, buttonUser);
 
-    h3.innerText= `${user.name} ${user.age} ${user.status}`;
+    h3.innerText= `${user.name} ${user.age}  ${user.status}`;
 
     divUser.style.display=`flex`;
     h3.style.marginRight = `20px`;
@@ -44,17 +39,13 @@ for (const user of users) {
 
 
     buttonUser.onclick= function () {
-        let itemJson = localStorage.getItem(`favourites`);
-        let parse = JSON.parse(itemJson);
 
-
-        parse.push(`${user.name} ${user.age} ${user.status}`);
-        localStorage.setItem(`favourites`, JSON.stringify(parse));
+        const favourites = JSON.parse(localStorage.getItem(`favourites`)) || [];
+        favourites.push(user);
+        localStorage.setItem(`favourites`, JSON.stringify(favourites));
 
     }
-
 }
-
 
 let a = document.createElement(`a`);
 a.setAttribute(`href`, `http://localhost:63342/js/additional_homework_11/favorites.html?_ijt=72lntt8vd1fd74rt0rd5mfd27v&_ij_reload=RELOAD_ON_SAVE`);
