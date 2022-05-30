@@ -1,0 +1,36 @@
+body{
+    margin: 2px;
+    width: 100vw;
+    height: 100vh;
+}
+
+.element{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.post{
+    background: skyblue;
+    width: calc(19.6%);
+    height: 350px;
+    justify-content: space-evenly;
+    border: 1px solid navy;
+}
+
+.elem{
+    margin: 3px;
+}
+
+
+.comment{
+    background: thistle;
+    flex-wrap: wrap;
+    border: 2px solid;
+}
+
+.liComment{
+    margin: 5px;
+}

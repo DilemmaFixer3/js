@@ -238,41 +238,78 @@
 та властивості внутрішніх об'єктів створити свої окремі блок.
 ---------*/
 //debugger;
-let divWrap = document.createElement(`div`);
-document.body.appendChild(divWrap);
+// let divWrap = document.createElement(`div`);
+// document.body.appendChild(divWrap);
+//
+//
+// for (const user of usersList) {
+//     let divElement = document.createElement(`div`);
+//     divWrap.appendChild(divElement);
+//     fooRecursion(user, divElement);
+//
+// }
 
+// let fooRecursion = (arr, divElement)=>{
+//         for (const userKey in arr) {
+//
+//             let divElement1 = document.createElement(`div`);
+//             //divElement1.innerText = `${user}`;
+//             divElement.appendChild(divElement1);
+//             //fooRecursion(user);
+//
+//
+//            /* if (userKey.keys().length>1) {
+//                 for (const value in userKey) {
+//                     let divElement2 = document.createElement(`div`);
+//                     //divElement1.innerText = `${user}`;
+//                     divElement1.appendChild(divElement2);
+//                     //fooRecursion(user);
+//
+//                 }
+//             }*/
+//         }
+//
+// }
+//
+// //fooRecursion(usersList);
 
-for (const user of usersList) {
-    let divElement = document.createElement(`div`);
-    divWrap.appendChild(divElement);
-    fooRecursion(user, divElement);
+// let createDivRecursion = (arr)=>{
+//     for (const item of arr) {
+//         const block = document.createElement(`div`);
+//         for (const key in item) {
+//             const element = document.createElement(`div`);
+//             if (item.children){
+//                 createDivRecursion(item);
+//             }else{
+//                 element.innerText=`${JSON.stringify(item)}`;
+//             }
+//             block.append(element);
+//         }
+//         document.body.append(block);
+//     }
+// }
 
+let createDivRecursion = (item, wrap)=>{
+    for (const key in item) {
+        //debugger;
+        const element = document.createElement(`div`);
+        //console.log(key.children);
+        if (item === `object`) {
+                element.innerText=`${key}`
+                createDivRecursion(item.children, element);
+            } else {
+                element.innerText = `${key}: ${item[key]}`;
+            }
+        wrap.append(element);
+    }
 }
 
-
-let fooRecursion = (arr, divElement)=>{
-        for (const userKey in arr) {
-
-            let divElement1 = document.createElement(`div`);
-            //divElement1.innerText = `${user}`;
-            divElement.appendChild(divElement1);
-            //fooRecursion(user);
-
-
-           /* if (userKey.keys().length>1) {
-                for (const value in userKey) {
-                    let divElement2 = document.createElement(`div`);
-                    //divElement1.innerText = `${user}`;
-                    divElement1.appendChild(divElement2);
-                    //fooRecursion(user);
-
-                }
-            }*/
-        }
-
+for (const item of usersList) {
+    const block = document.createElement(`div`);
+    createDivRecursion(item, block);
+    document.body.append(block);
 }
 
-//fooRecursion(usersList);
 
 
 /*--------
