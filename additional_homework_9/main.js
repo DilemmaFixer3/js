@@ -237,86 +237,55 @@
 Створити під кожен елемент окремий блок. В цьому блоці, під кожну властивість,
 та властивості внутрішніх об'єктів створити свої окремі блок.
 ---------*/
-//debugger;
-// let divWrap = document.createElement(`div`);
-// document.body.appendChild(divWrap);
-//
-//
-// for (const user of usersList) {
-//     let divElement = document.createElement(`div`);
-//     divWrap.appendChild(divElement);
-//     fooRecursion(user, divElement);
-//
-// }
 
-// let fooRecursion = (arr, divElement)=>{
-//         for (const userKey in arr) {
-//
-//             let divElement1 = document.createElement(`div`);
-//             //divElement1.innerText = `${user}`;
-//             divElement.appendChild(divElement1);
-//             //fooRecursion(user);
-//
-//
-//            /* if (userKey.keys().length>1) {
-//                 for (const value in userKey) {
-//                     let divElement2 = document.createElement(`div`);
-//                     //divElement1.innerText = `${user}`;
-//                     divElement1.appendChild(divElement2);
-//                     //fooRecursion(user);
-//
-//                 }
-//             }*/
-//         }
-//
-// }
-//
-// //fooRecursion(usersList);
 
-// let createDivRecursion = (arr)=>{
-//     for (const item of arr) {
-//         const block = document.createElement(`div`);
-//         for (const key in item) {
-//             const element = document.createElement(`div`);
-//             if (item.children){
-//                 createDivRecursion(item);
-//             }else{
-//                 element.innerText=`${JSON.stringify(item)}`;
-//             }
-//             block.append(element);
+
+//-----------------------------------------------------------------------
+// let createDivRecursion = (item, wrap)=>{
+//     for (const key in item) {
+//         const element = document.createElement(`div`);
+//
+//         if (typeof item[key] !== 'object') {
+//             element.innerHTML = `<p><b>${key} :</b> ${item[key]}</p>`;
+//         } else {
+//             element.innerHTML = `<h4>${key}</h4>`;
+//             createDivRecursion(item[key], element);
 //         }
-//         document.body.append(block);
+//         wrap.append(element);
 //     }
 // }
-
-let createDivRecursion = (item, wrap)=>{
-    for (const key in item) {
-        //debugger;
-        const element = document.createElement(`div`);
-        //console.log(key.children);
-        if (item === `object`) {
-                element.innerText=`${key}`
-                createDivRecursion(item.children, element);
-            } else {
-                element.innerText = `${key}: ${item[key]}`;
-            }
-        wrap.append(element);
-    }
-}
-
-for (const item of usersList) {
-    const block = document.createElement(`div`);
-    createDivRecursion(item, block);
-    document.body.append(block);
-}
-
-
+//
+// for (const item of usersList) {
+//     const block = document.createElement(`div`);
+//     createDivRecursion(item, block);
+//     document.body.append(block);
+// }
+//----------------------------------------------------------------------
 
 /*--------
     за допомоги рекурсії перебрати структуру сторінки. зробити об'єкт,
      всі заголовки покласти в (масив) характеристику headings,всі параграфи
      покласти в характеристику (масив) paragraphs
 ------*/
+const ps = [];
+const hs = [];
+
+const rec = (item) => {
+    for (const element of item.children) {
+        if (element.localName === 'h2') hs.push(element.innerText);
+        if (element.localName === 'p') ps.push(element.innerText);
+        if (element.children) rec(element);
+    }
+}
+
+const element = document.getElementById('wrap');
+rec(element);
+
+const obj = {
+    title: hs,
+    paragraph: ps
+}
+console.log(obj);
 
 
 
@@ -326,3 +295,18 @@ for (const item of usersList) {
 
 asd ->tab-> <asd></asd>
 --------*/
+
+const divElement = document.createElement('div');
+document.body.append(divElement);
+
+divElement.setAttribute('contenteditable', 'true');
+divElement.style.height = '100px';
+divElement.style.border = '1px solid black';
+
+divElement.onkeydown = (e) => {
+    const name = e.key;
+
+    if (name === 'Tab') {
+        divElement.innerText = `<${divElement.innerText}></${divElement.innerText}>`;
+    }
+}
